@@ -46,7 +46,7 @@
     </style>
     <script>
         function checkLogin() {
-            const allowedNames = ["Diya Zaveri", "Diya", "DIYA ZAVERI", "DIYA", "DIYA SHAH", "Diya Shah"];
+            const allowedName = "Diya";
             const enteredName = document.getElementById("nameInput").value.trim();
             
             if (allowedNames.some(name => name.toLowerCase() === enteredName.toLowerCase())) {
