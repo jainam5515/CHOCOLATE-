@@ -2,14 +2,14 @@ const form = document.getElementById('login-form');
 const codeInput = document.getElementById('code');
 const resultDiv = document.getElementById('result');
 
-const secretCode = 'DIYA';
+const allowedNames = ["Diya Zaveri", "Diya", "DIYA ZAVERI", "DIYA", "DIYA SHAH", "Diya Shah"];
 const nextPageUrl = 'main.html';
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     const userInput = codeInput.value.trim();
-    
-    if (userInput === secretCode) {
+
+    if (allowedNames.some(name => name.toLowerCase() === userInput.toLowerCase())) {
         resultDiv.innerHTML = '💕 Access Granted, My Love! 💕';
         window.location.href = nextPageUrl;
     } else {
