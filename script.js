@@ -1,20 +1,34 @@
-// Redirect users if they try to access index.html without login
-if (window.location.pathname.includes("index.html")) {
-    const isLoggedIn = localStorage.getItem("loggedIn");
-    if (!isLoggedIn) {
-        window.location.href = "login.html";
-    }
-}
+const form = document.getElementById('login-form');
+const codeInput = document.getElementById('code');
+const resultDiv = document.getElementById('result');
 
-// Function to check login and redirect
-function checkLogin() {
-    const allowedName = "Diya"; // Change this to your desired name
-    const enteredName = document.getElementById("nameInput").value;
+const secretCode = 'DIYA';
+const nextPageUrl = 'main.html';
 
-    if (enteredName.toLowerCase() === allowedName.toLowerCase()) {
-        localStorage.setItem("loggedIn", "true"); // Store login session
-        window.location.href = "index.html"; // Redirect to the main page
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const userInput = codeInput.value.trim();
+    
+    if (userInput === secretCode) {
+        resultDiv.innerHTML = '💕 Access Granted, My Love! 💕';
+        window.location.href = nextPageUrl;
     } else {
-        alert("Sorry, you are not allowed! 😢");
+        resultDiv.innerHTML = '💔 Access Denied! You are not my cutie!';
     }
+    
+    showHeart();
+});
+
+// Floating Heart Animation
+function showHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerText = '❤️';
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.top = Math.random() * window.innerHeight + 'px';
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 2000);
 }
