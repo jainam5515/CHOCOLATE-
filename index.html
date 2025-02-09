@@ -1,12 +1,17 @@
+<!DOCTYPE html>
 <html lang="en">
-<script src="script.js"></script>
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chocolate Day Surprise 🍫💕</title>
     <link rel="stylesheet" href="style.css">
+    <script>
+        // Redirect to login page if the user is not logged in
+        if (!localStorage.getItem("loggedIn")) {
+            window.location.href = "login.html";
+        }
+    </script>
 </head>
-
 <body style="background: linear-gradient(135deg, #ffdde1, #ff9a9e); animation: fadeIn 1.5s ease-in;">
     <div class="container">
         <h1>🍫 Happy Chocolate Day, My Love! 🍫</h1>
@@ -19,6 +24,5 @@
             <a id="noButton" href="no1.html">No, I Hate Chocolates! 😢</a>
         </div>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>
